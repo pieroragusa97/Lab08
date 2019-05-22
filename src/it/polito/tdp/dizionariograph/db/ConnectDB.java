@@ -2,13 +2,14 @@ package it.polito.tdp.dizionariograph.db;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.sql.SQLTransientConnectionException;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
 public class ConnectDB {
 
-	private static final String jdbcURL = "jdbc:mysql://localhost/dizionario";
+	private static final String jdbcURL = "jdbc:mysql://localhost/dizionario?serverTimezone=Europe/Rome";
 	private static HikariDataSource ds;
 	
 	public static Connection getConnection() {
@@ -17,7 +18,7 @@ public class ConnectDB {
 			HikariConfig config = new HikariConfig();
 			config.setJdbcUrl(jdbcURL);
 			config.setUsername("root");
-			config.setPassword("root");
+			config.setPassword("juventus");
 			
 			// configurazione MySQL
 			config.addDataSourceProperty("cachePrepStmts", "true");
